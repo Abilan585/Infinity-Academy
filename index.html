@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Infinity Academy | K. ABILAN</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="academy-logo">
+
+            <div class="logo-icon">
+                ∞
+            </div>
+
+            <div>
+                <h2>Infinity Academy</h2>
+                <small>Mathematics</small>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button class="nav-item active" onclick="showPage('dashboard', this)">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-item" onclick="showPage('students', this)">
+                👥 Students
+            </button>
+
+            <button class="nav-item" onclick="showPage('results', this)">
+                📊 Results
+            </button>
+
+            <button class="nav-item" onclick="showPage('attendance', this)">
+                📅 Attendance
+            </button>
+
+            <button class="nav-item" onclick="showPage('feedback', this)">
+                ⭐ Feedback
+            </button>
+
+            <button class="nav-item" onclick="showPage('announcements', this)">
+                📢 Announcements
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-profile">
+
+            <strong>K. ABILAN</strong>
+
+            <span>
+                Faculty of Engineering (Undergraduate)
+            </span>
+
+            <small>
+                Mathematics Tutor
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Welcome to Infinity Academy
+                </p>
+            </div>
+
+
+            <div class="tutor-name">
+
+                <strong>K. ABILAN</strong>
+
+                <span>
+                    Mathematics Tutor
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="page active-page">
+
+            <div class="profile-banner">
+
+                <div>
+
+                    <h2>
+                        K. ABILAN
+                    </h2>
+
+                    <p>
+                        Faculty of Engineering (Undergraduate)
+                    </p>
+
+                    <span>
+                        Mathematics Tutor
+                    </span>
+
+                </div>
+
+                <div class="infinity-big">
+                    ∞
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        👥
+                    </div>
+
+                    <div>
+                        <span>Total Students</span>
+                        <strong id="totalStudents">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        📊
+                    </div>
+
+                    <div>
+                        <span>Class Average</span>
+                        <strong id="classAverage">0%</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⭐
+                    </div>
+
+                    <div>
+                        <span>Average Rating</span>
+                        <strong id="averageRating">0 / 5</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        📅
+                    </div>
+
+                    <div>
+                        <span>Attendance</span>
+                        <strong>92%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Recent Results</h3>
+                            <p>Latest student performance</p>
+                        </div>
+
+                        <button onclick="showPage('results')">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Grade</th>
+                                    <th>Test</th>
+                                    <th>Marks</th>
+                                    <th>Grade</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="recentResults">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Recent Feedback</h3>
+                            <p>Student opinions</p>
+                        </div>
+
+                        <button onclick="showPage('feedback')">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div id="recentFeedback">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STUDENTS -->
+
+        <section id="students" class="page">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Students</h2>
+
+                    <p>
+                        Manage Infinity Academy students
+                    </p>
+
+                </div>
+
+                <button class="primary-btn" onclick="openStudentModal()">
+                    + Add Student
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search student..."
+                        onkeyup="searchStudents()"
+                    >
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Student Name</th>
+                                <th>Grade</th>
+                                <th>Phone</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="studentsTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section id="results" class="page">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Results</h2>
+
+                    <p>
+                        Student marks and performance
+                    </p>
+
+                </div>
+
+                <button class="primary-btn" onclick="openResultModal()">
+                    + Add Result
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Student</th>
+                                <th>Grade</th>
+                                <th>Test</th>
+                                <th>Part 1</th>
+                                <th>Part 2</th>
+                                <th>Total</th>
+                                <th>Grade</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="resultsTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATTENDANCE -->
+
+        <section id="attendance" class="page">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Attendance</h2>
+
+                    <p>
+                        Track student attendance
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="attendance-summary">
+
+                    <div>
+                        <strong>92%</strong>
+                        <span>Overall Attendance</span>
+                    </div>
+
+                    <div>
+                        <strong>28</strong>
+                        <span>Present</span>
+                    </div>
+
+                    <div>
+                        <strong>3</strong>
+                        <span>Absent</span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Student</th>
+                                <th>Grade</th>
+                                <th>Present</th>
+                                <th>Absent</th>
+                                <th>Attendance</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="attendanceTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEEDBACK -->
+
+        <section id="feedback" class="page">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Student Feedback</h2>
+
+                    <p>
+                        Understand your students better
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feedback-grid" id="feedbackGrid">
+
+            </div>
+
+        </section>
+
+
+        <!-- ANNOUNCEMENTS -->
+
+        <section id="announcements" class="page">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Announcements</h2>
+
+                    <p>
+                        Important messages for students
+                    </p>
+
+                </div>
+
+                <button class="primary-btn" onclick="addAnnouncement()">
+                    + New Announcement
+                </button>
+
+            </div>
+
+
+            <div id="announcementList">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- STUDENT MODAL -->
+
+    <div class="modal" id="studentModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeModal('studentModal')">
+                ×
+            </button>
+
+            <h2>Add Student</h2>
+
+            <p>
+                K. ABILAN • Mathematics Tutor
+            </p>
+
+
+            <form onsubmit="addStudent(event)">
+
+                <label>Student Name</label>
+
+                <input
+                    type="text"
+                    id="newStudentName"
+                    required
+                >
+
+
+                <label>Grade</label>
+
+                <select id="newStudentGrade" required>
+
+                    <option value="">
+                        Select Grade
+                    </option>
+
+                    <option value="Grade 10">
+                        Grade 10
+                    </option>
+
+                    <option value="Grade 11">
+                        Grade 11
+                    </option>
+
+                </select>
+
+
+                <label>Phone Number</label>
+
+                <input
+                    type="tel"
+                    id="newStudentPhone"
+                >
+
+
+                <button class="primary-btn">
+                    Add Student
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT MODAL -->
+
+    <div class="modal" id="resultModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeModal('resultModal')">
+                ×
+            </button>
+
+            <h2>Add Result</h2>
+
+            <p>
+                Infinity Academy • K. ABILAN
+            </p>
+
+
+            <form onsubmit="addResult(event)">
+
+                <label>Student Name</label>
+
+                <input
+                    type="text"
+                    id="resultStudent"
+                    required
+                >
+
+
+                <label>Grade</label>
+
+                <select id="resultGrade" required>
+
+                    <option value="Grade 10">
+                        Grade 10
+                    </option>
+
+                    <option value="Grade 11">
+                        Grade 11
+                    </option>
+
+                </select>
+
+
+                <label>Test Name</label>
+
+                <input
+                    type="text"
+                    id="testName"
+                    placeholder="Unit Test 01"
+                    required
+                >
+
+
+                <label>Part 1 Marks</label>
+
+                <input
+                    type="number"
+                    id="part1"
+                    min="0"
+                    max="100"
+                    required
+                >
+
+
+                <label>Part 2 Marks</label>
+
+                <input
+                    type="number"
+                    id="part2"
+                    min="0"
+                    max="100"
+                    required
+                >
+
+
+                <button class="primary-btn">
+                    Save Result
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <strong>Infinity Academy</strong>
+
+        <p>
+            K. ABILAN
+        </p>
+
+        <p>
+            Faculty of Engineering (Undergraduate)
+        </p>
+
+        <p>
+            Mathematics Tutor
+        </p>
+
+        <small>
+            © 2026 Infinity Academy. All Rights Reserved.
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+  </html>
